@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         progressDialog.hide();
                         meaning = "Belə ad təyin olunmayıb";
+                        if (name.length() > 1 && name.charAt(name.length() - 1) == 'ə')
+                        {
+                            meaning += "\nKişi adlarına 'ə' əlavə olunmaqla düzələn qadın adları sistemdə təyin olunmayıb" +
+                                    "\nBele qadın adlarının mənasını öyrənmək üçün adın kişi cinsi versiyasını sınayın: \n" +
+                                    name.substring(0, name.length() - 1git);
+                        }
                     }
                     meaningTextView.setText(meaning);
 
