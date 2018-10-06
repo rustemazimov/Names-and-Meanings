@@ -1,54 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.apps.romeo.adlarinmenasi.MainActivity"
     android:background="@drawable/background_photo">
 
-    <EditText
-        android:id="@+id/name_edit_text"
-        android:layout_width="245dp"
-        android:layout_height="68dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:layout_x="65dp"
-        android:layout_y="41dp"
-        android:ems="10"
-        android:hint="Adınızı daxil edin"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_green_dark"
-        android:textColorHint="@android:color/holo_green_light"
-        android:textSize="30dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="163dp"
-        android:layout_height="82dp"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:layout_x="111dp"
-        android:layout_y="129dp"
-        android:background="@android:drawable/btn_default"
-        android:fontFamily="serif-monospace"
-        android:text="Axtar"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="35dp" />
+        <EditText
+            android:id="@+id/name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:ems="10"
+            android:hint="Adınızı daxil edin"
+            android:digits="əıöüƏIÖÜabcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVXYZ"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_green_dark"
+            android:textColorHint="@android:color/holo_green_light"
+            android:textSize="30dp"
+            android:imeOptions="normal"
+            android:inputType="textPersonName"
+            android:singleLine="true"/>
 
-    <TextView
-        android:id="@+id/meaning_text_view"
-        android:layout_width="314dp"
-        android:layout_height="212dp"
-        android:layout_x="31dp"
-        android:layout_y="253dp"
-        android:autoText="true"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textIsSelectable="true"
-        android:textSize="20dp" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:layout_x="111dp"
+            android:layout_y="129dp"
+            android:background="@android:drawable/btn_default"
+            android:fontFamily="serif-monospace"
+            android:text="Axtar"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="35dp" />
 
-</AbsoluteLayout>
+        <TextView
+            android:id="@+id/meaning_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textColor="#ff5d65"
+            android:textIsSelectable="true"
+            android:textSize="24dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="textMultiLine"
+            android:enabled="false"
+            />
+    </LinearLayout>
+</LinearLayout>
+
+

@@ -6,7 +6,9 @@ import android.net.Uri;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         final TextView meaningTextView = (TextView) findViewById(R.id.meaning_text_view);
+        final Button button = (Button) findViewById(R.id.button);
+        final EditText nameEditText = (EditText) findViewById(R.id.name_edit_text);
 
-        ((Button) findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 meaningTextView.setText("");
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     return;
                 }
-                String name = ((EditText) findViewById(R.id.name_edit_text)).getText().toString().trim();
+                String name = nameEditText.getText().toString().trim();
                 if (name.isEmpty())
                 {
                     progressDialog.hide();
@@ -89,9 +93,33 @@ public class MainActivity extends AppCompatActivity {
                     progressDialog.hide();
                     showMessage("Internet əlaqəsini yoxlayın");
                 }
+                nameEditText.onEditorAction(EditorInfo.IME_ACTION_DONE);
                 progressDialog.hide();
             }
         });
+
+        nameEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                    button.callOnClick();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+        /*nameEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE)
+                {
+                    button.callOnClick();
+                    return true;
+                }
+                return false;
+            }
+        });*/
     }
 
     private void initializeProgressDiaglog() {
